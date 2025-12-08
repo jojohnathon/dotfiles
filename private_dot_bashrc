@@ -1,0 +1,12 @@
+# Basic aliases for remote systems
+alias ls="ls --color=auto"
+alias ll="ls -lah --color=auto"
+alias grep="grep --color=auto"
+alias gs="git status -sb"
+alias ..="cd .."
+alias ...="cd ../.."
+
+# Initialize zoxide if installed (aliased to cd)
+if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init bash --cmd cd)"
+fi
