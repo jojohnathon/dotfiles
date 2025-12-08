@@ -1,3 +1,6 @@
+# Add user bin directories to PATH
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
 # Basic aliases for remote systems
 alias ls="ls --color=auto"
 alias ll="ls -lah --color=auto"
