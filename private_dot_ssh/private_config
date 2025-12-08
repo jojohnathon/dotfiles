@@ -1,0 +1,42 @@
+Include /Users/jon/.colima/ssh_config
+
+# Proxmox Cluster Nodes
+Host pve 192.168.1.107
+  HostName 192.168.1.107
+  User root
+
+Host lenovo 192.168.1.143
+  HostName 192.168.1.143
+  User root
+
+Host latitude 192.168.1.147
+  HostName 192.168.1.147
+  User root
+
+Host pavilion 192.168.1.146
+  HostName 192.168.1.146
+  User root
+
+Host asus 192.168.1.154
+  HostName 192.168.1.154
+  User root
+
+# Enable SSH agent forwarding for homelab nodes
+Host pve lenovo latitude pavilion asus
+  ForwardAgent yes
+
+# External Services
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+  AddKeysToAgent yes
+  UseKeychain yes
+
+#ssh agent forwarding for ocf hpc
+Host gpus
+    HostName hpcctl.ocf.berkeley.edu
+    User johnathon
+    ForwardAgent Yes
+    AddKeysToAgent Yes
+    IdentityFile ~/.ssh/id_ed25519
