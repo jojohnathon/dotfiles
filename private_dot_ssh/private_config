@@ -22,8 +22,10 @@ Host asus 192.168.1.154
   User root
 
 # Enable SSH agent forwarding for homelab nodes
+# and set compatible terminal b/c i use ghostty
 Host pve lenovo latitude pavilion asus
   ForwardAgent yes
+  SetEnv TERM=xterm-256color
 
 # External Services
 Host github.com
@@ -40,3 +42,11 @@ Host gpus
     ForwardAgent Yes
     AddKeysToAgent Yes
     IdentityFile ~/.ssh/id_ed25519
+    SetEnv TERM=xterm-256color
+
+
+# Ubuntu Saltbox VM
+Host sb 192.168.1.130
+  HostName 192.168.1.130
+  User zhengers 
+  SetEnv TERM=xterm-256color
