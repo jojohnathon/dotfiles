@@ -44,6 +44,11 @@ Host gpus
     IdentityFile ~/.ssh/id_ed25519
     SetEnv TERM=xterm-256color
 
+Host decal
+    HostName johnathon.decal.ocfhosted.com
+    User johnathon
+    ForwardAgent Yes
+
 
 # Ubuntu Saltbox VM
 Host sb 192.168.1.130
