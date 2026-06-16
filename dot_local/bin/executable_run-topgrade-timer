@@ -1,0 +1,33 @@
+#!/bin/zsh
+set -u
+
+export PATH="/opt/homebrew/bin:/usr/local/bin:/Users/jon/.local/bin:/Users/jon/Library/pnpm/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export HOME="/Users/jon"
+
+log_dir="$HOME/Library/Logs/topgrade"
+log_file="$log_dir/topgrade.log"
+lock_dir="$HOME/Library/Logs/topgrade/.topgrade.lock"
+
+mkdir -p "$log_dir"
+
+if ! mkdir "$lock_dir" 2>/dev/null; then
+  {
+    echo "==== $(date '+%Y-%m-%d %H:%M:%S %z') ===="
+    echo "topgrade timer skipped: another run is already active"
+  } >> "$log_file" 2>&1
+  exit 0
+fi
+
+cleanup() {
+  rmdir "$lock_dir" 2>/dev/null || true
+}
+trap cleanup EXIT INT TERM
+
+{
+  echo "==== $(date '+%Y-%m-%d %H:%M:%S %z') ===="
+  echo "starting topgrade timer"
+  /opt/homebrew/bin/topgrade --yes --no-ask-retry
+  exit_code=$?
+  echo "topgrade timer exited with status $exit_code"
+  exit "$exit_code"
+} >> "$log_file" 2>&1
