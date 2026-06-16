@@ -27,6 +27,12 @@ Host pve lenovo latitude pavilion asus
   ForwardAgent yes
   SetEnv TERM=xterm-256color
 
+# Ubuntu Saltbox VM
+Host sb 192.168.1.130
+  HostName 192.168.1.130
+  User zhengers 
+  SetEnv TERM=xterm-256color
+
 # External Services
 Host github.com
   HostName github.com
@@ -35,7 +41,7 @@ Host github.com
   AddKeysToAgent yes
   UseKeychain yes
 
-#ssh agent forwarding for ocf hpc
+# ssh agent forwarding for ocf hpc
 Host gpus
     HostName hpcctl.ocf.berkeley.edu
     User johnathon
@@ -49,9 +55,13 @@ Host decal
     User johnathon
     ForwardAgent Yes
 
-
-# Ubuntu Saltbox VM
-Host sb 192.168.1.130
-  HostName 192.168.1.130
-  User zhengers 
+# xmap ec2
+Host xmap
+  HostName 13.230.234.174
+  User ubuntu
+  IdentityFile /Users/jon/.ssh/johnathan.pem
+  IdentitiesOnly yes
   SetEnv TERM=xterm-256color
+
+
+

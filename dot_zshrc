@@ -9,7 +9,6 @@ python3() {
         command python3 "$@"
     fi
 }
-eval "$(starship init zsh)"
 
 # Ensure nvm is available in interactive shells
 export NVM_DIR="$HOME/.nvm"
@@ -33,10 +32,23 @@ compdef _eza ls
 compdef _eza ll
 compdef _eza tree
 
-# Initialize zoxide (aliased to cd)
-eval "$(zoxide init zsh --cmd cd)"
-
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
 # Added by Antigravity
 export PATH="/Users/jon/.antigravity/antigravity/bin:$PATH"
+
+if command -v starship >/dev/null 2>&1; then
+    eval "$(starship init zsh)"
+else
+    PROMPT='%~ %# '
+fi
+
+# Initialize zoxide (aliased to cd) at the end so its hooks stay intact.
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init zsh --cmd cd)"
+fi
+
+export GPG_TTY=$(tty)
+
+# Added by Antigravity IDE
+export PATH="/Users/jon/.antigravity-ide/antigravity-ide/bin:$PATH"
