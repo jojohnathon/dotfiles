@@ -152,6 +152,8 @@ cask "orion"
 cask "parsec"
 # Minecraft launcher
 cask "prismlauncher"
+# Spotify client
+cask "psst"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Team communication and collaboration software
