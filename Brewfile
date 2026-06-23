@@ -1,4 +1,4 @@
-tap "dubeykartikay/lazyspotify"
+tap "dubeykartikay/lazyspotify", "https://github.com/dubeyKartikay/homebrew-lazyspotify"
 # Any-to-PostScript filter
 brew "a2ps"
 # General-purpose data compression with high compression ratio
@@ -124,6 +124,8 @@ cask "chatgpt-atlas"
 # Write, edit, and chat about your code with AI
 cask "cursor"
 cask "font-jetbrains-mono-nerd-font"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Web browser
