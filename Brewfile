@@ -160,8 +160,6 @@ cask "psst"
 cask "raycast"
 # Team communication and collaboration software
 cask "slack"
-# Video game digital distribution service
-cask "steam"
 # Mesh VPN based on WireGuard
 cask "tailscale-app"
 # To-do list
